@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dapalette-agent-runtime"
+version = "1.0.0"
+description = "Excerpt of Dapalette's agent runtime: event-sourced control plane, leased workers, gated tool execution for influencer-marketing campaigns"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyright>=1.1.400"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.pyright]
+include = ["dapalette_runtime", "tests", "demo.py"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"
+
+[tool.setuptools.packages.find]
+include = ["dapalette_runtime*"]
